@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.4
 # Build stage
-FROM golang:1.24.3-alpine3.21 AS builder
+FROM golang:1.24-alpine@sha256:68932fa6d4d4059845c8f40ad7e654e626f3ebd3706eef7846f319293ab5cb7a AS builder
 
 # Build arguments
 ARG VERSION=development
@@ -43,13 +43,13 @@ RUN cd pkg/cmd/ghactions-updater/ && \
     go build -trimpath -ldflags="-s -w -X main.Version=${VERSION} -X main.Commit=${COMMIT}" -o ../../../ghactions-updater
 
 # Generate SBOM for the build stage
-FROM alpine:3.21 AS sbom-generator
+FROM alpine:3.22@sha256:8a1f59ffb675680d47db6337b49d22281a139e9d709335b492be023728e11715 AS sbom-generator
 RUN apk add --no-cache syft
 COPY --from=builder /app /app
 RUN syft /app -o spdx-json=/sbom.json
 
 # Final stage
-FROM alpine:3.21
+FROM alpine:3.22@sha256:8a1f59ffb675680d47db6337b49d22281a139e9d709335b492be023728e11715
 
 # Build arguments for final stage
 ARG VERSION
