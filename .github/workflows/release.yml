@@ -136,7 +136,7 @@ jobs:
           ' CHANGELOG.md > release_notes.md
 
       - name: Upload Release Assets
-        uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8  # v2.3.2
+        uses: step-security/action-gh-release@2677a32b1ab8b24324ede3be9da4e1d8c3f686ee # v2.3.2
         with:
           files: |
             ghactions-updater-linux-amd64
