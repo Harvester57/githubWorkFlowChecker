@@ -38,10 +38,7 @@ jobs:
         run: make lint
 
       - name: Run tests with coverage
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          make coverage
+        run: make coverage
 
   security-scan:
     name: Security Scan
