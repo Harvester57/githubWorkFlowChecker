@@ -38,6 +38,7 @@ jobs:
         run: make lint
 
       - name: Run tests with coverage
+        if: ${{ secrets.CODECOV_TOKEN != '' }}
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
