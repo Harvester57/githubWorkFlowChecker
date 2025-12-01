@@ -71,11 +71,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - name: Nested steps
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
         steps:
-          - uses: actions/setup-python@v3`,
+          - actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548`,
 			wantRefs: 3,
 			wantErr:  false,
 		},
@@ -99,7 +99,7 @@ jobs:
 		},
 		{
 			name:     "mixed line endings",
-			content:  "name: Test Workflow\r\non: [push]\njobs:\r\n  test:\n    runs-on: ubuntu-latest\r\n    steps:\r\n      - uses: actions/checkout@v2\n",
+			content:  "name: Test Workflow\r\non: [push]\njobs:\r\n  test:\n    runs-on: ubuntu-latest\r\n    steps:\r\n      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3\n",
 			wantRefs: 1,
 			wantErr:  false,
 		},
@@ -113,9 +113,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Before action
-      - uses: actions/checkout@v2  # Inline comment
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # Inline comment
       # Between actions
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
       # After actions`,
 			wantRefs: 2,
 			wantErr:  false,
@@ -128,7 +128,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.4-beta.1+meta`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3.3.4-beta.1+meta`,
 			wantRefs: 1,
 			wantErr:  false,
 		},
@@ -140,11 +140,11 @@ jobs:
   test1:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
   test2:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantRefs: 2,
 			wantErr:  false,
 		},
@@ -156,7 +156,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps: &steps
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
   deploy:
     runs-on: ubuntu-latest
     steps: *steps`,
@@ -172,7 +172,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检查代码
-        uses: actions/checkout@v2`,
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantRefs: 1,
 			wantErr:  false,
 		},
@@ -183,7 +183,7 @@ jobs:
   a:
     runs-on: a
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantRefs: 1,
 			wantErr:  false,
 		},
@@ -210,11 +210,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: outer
-        uses: actions/checkout@v2
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
         with:
           nested:
             steps:
-              - uses: actions/setup-node@v2`,
+              - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903`,
 			wantRefs: 2,
 			wantErr:  false,
 		},
@@ -226,7 +226,7 @@ jobs:
   test:
     strategy:
       matrix:
-        action: ['actions/checkout@v2', 'actions/setup-node@v2']
+        action: ['actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3', 'actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903']
     runs-on: ubuntu-latest
     steps:
       - uses: ${{ matrix.action }}`,
@@ -243,7 +243,7 @@ jobs:
     steps:
       - name: Echo action
         run: |
-          echo "uses: actions/checkout@v2"`,
+          echo "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3"`,
 			wantRefs: 0,
 			wantErr:  false,
 		},
@@ -256,7 +256,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - if: ${{ github.event_name == 'push' }}
-        uses: actions/checkout@v2`,
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantRefs: 1,
 			wantErr:  false,
 		},

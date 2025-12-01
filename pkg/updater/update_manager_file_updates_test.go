@@ -43,7 +43,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  # Current version
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # Current version
       - uses: actions/setup-node@v3  # Node.js setup`,
 			updates: []*Update{
 				{
@@ -76,7 +76,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-node@v3
       - uses: actions/setup-python@v3`,
 			updates: []*Update{
@@ -146,7 +146,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - name: Setup Node.js
         uses: actions/setup-node@v3`,
 			updates: []*Update{
@@ -180,7 +180,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  # This is a comment
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # This is a comment
       - uses: actions/setup-node@v3  # Another comment`,
 			updates: []*Update{
 				{
@@ -288,7 +288,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`
 	if err := os.WriteFile(validFile, []byte(content), 0600); err != nil {
 		t.Fatalf(common.ErrFailedToCreateTestFile, err)
 	}
@@ -409,7 +409,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-node@v3
       - uses: actions/setup-python@v3
       - uses: actions/setup-java@v2
@@ -634,7 +634,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  # Comment with "quotes" and 'apostrophes'
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # Comment with "quotes" and 'apostrophes'
       - uses: actions/setup-node@v3  # Comment with symbols: !@#$%^&*()_+`
 	if err := os.WriteFile(specialFile, []byte(specialContent), 0600); err != nil {
 		t.Fatalf(common.ErrFailedToCreateSpecialFile, err)
@@ -685,7 +685,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`
 	if err := os.WriteFile(sameLineFile, []byte(sameLineContent), 0600); err != nil {
 		t.Fatalf(common.ErrFailedToCreateSameLineFile, err)
 	}

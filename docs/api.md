@@ -285,7 +285,7 @@ func updateWorkflows(checker VersionChecker, manager UpdateManager, creator PRCr
 
 1. **Existing Format**
    ```yaml
-   uses: actions/checkout@v3
+   uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
    ```
 
 2. **New Format with Version History**

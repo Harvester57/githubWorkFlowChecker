@@ -36,7 +36,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-go@v4
 `, i)
 					workflowFile := filepath.Join(workflowDir, fmt.Sprintf("test-%d.yml", i))

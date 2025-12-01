@@ -44,21 +44,21 @@ func TestParseAliasedNode(t *testing.T) {
 			name: "Simple aliased node with uses",
 			yamlContent: `
 common: &common_step
-  uses: actions/checkout@v2
+  uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
 
 steps:
   - <<: *common_step
 `,
 			aliasLine:      6, // Line number of the alias reference
 			expectedCount:  1,
-			expectedAction: "actions/checkout@v2",
+			expectedAction: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 		{
 			name: "Aliased node with multiple properties",
 			yamlContent: `
 common: &common_step
   name: Checkout
-  uses: actions/checkout@v2
+  uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
   with:
     fetch-depth: 1
 
@@ -67,13 +67,13 @@ steps:
 `,
 			aliasLine:      8, // Line number of the alias reference
 			expectedCount:  1,
-			expectedAction: "actions/checkout@v2",
+			expectedAction: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 		{
 			name: "Multiple aliased nodes",
 			yamlContent: `
 checkout: &checkout_step
-  uses: actions/checkout@v2
+  uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
 
 node: &node_step
   uses: actions/setup-node@v3
@@ -84,14 +84,14 @@ steps:
 `,
 			aliasLine:      8, // Line number of the first alias reference
 			expectedCount:  1,
-			expectedAction: "actions/checkout@v2",
+			expectedAction: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 		{
 			name: "Aliased node with run command (should be skipped)",
 			yamlContent: `
 run_step: &run_step
   run: echo "Hello World"
-  uses: actions/checkout@v2
+  uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
 
 steps:
   - <<: *run_step
@@ -104,7 +104,7 @@ steps:
 			name: "Nested aliased node",
 			yamlContent: `
 base: &base
-  uses: actions/checkout@v2
+  uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
 
 extended: &extended
   <<: *base
@@ -116,13 +116,13 @@ steps:
 `,
 			aliasLine:      10, // Line number of the alias reference
 			expectedCount:  1,
-			expectedAction: "actions/checkout@v2",
+			expectedAction: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 		{
 			name: "Aliased node in sequence",
 			yamlContent: `
 items: &items
-  - uses: actions/checkout@v2
+  - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
   - uses: actions/setup-node@v3
 
 steps:
@@ -250,7 +250,7 @@ on: [push]
 # Common step definition
 common: &common_step
   # This is the checkout action
-  uses: actions/checkout@v2
+  uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
   # With default settings
 
 jobs:
@@ -279,7 +279,7 @@ jobs:
 
 	action := actions[0]
 	if action.Owner != "actions" || action.Name != "checkout" || action.Version != "v2" {
-		t.Errorf("Expected actions/checkout@v2, got %s/%s@%s", action.Owner, action.Name, action.Version)
+		t.Errorf("Expected actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3, got %s/%s@%s", action.Owner, action.Name, action.Version)
 	}
 
 	// Check that the comments were associated with the action
@@ -360,7 +360,7 @@ func TestParseAliasedNodeEdgeCases(t *testing.T) {
 		Kind: yaml.MappingNode,
 		Content: []*yaml.Node{
 			{Value: "uses", Kind: yaml.ScalarNode},
-			{Value: "actions/checkout@v2", Kind: yaml.ScalarNode},
+			{Value: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3", Kind: yaml.ScalarNode},
 		},
 	}
 
@@ -464,7 +464,7 @@ func TestParseAliasedNodeExtraTypes(t *testing.T) {
 			{Value: "run", Kind: yaml.ScalarNode},
 			{Value: "echo test", Kind: yaml.ScalarNode},
 			{Value: "uses", Kind: yaml.ScalarNode},
-			{Value: "actions/checkout@v2", Kind: yaml.ScalarNode},
+			{Value: "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3", Kind: yaml.ScalarNode},
 		},
 	}
 	prevLen := len(actions)

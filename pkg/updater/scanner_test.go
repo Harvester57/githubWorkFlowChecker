@@ -24,7 +24,7 @@ jobs:
   test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantErrMsg:  "error parsing workflow YAML",
 			permissions: 0600,
 		},
@@ -36,7 +36,7 @@ jobs:
 test:
   runs-on: ubuntu-latest
    steps:
-    - uses: actions/checkout@v2`,
+    - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantErrMsg:  "error parsing workflow YAML",
 			permissions: 0600,
 		},
@@ -78,7 +78,7 @@ jobs:
   test:
     runs-on: 'ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantErrMsg:  "error parsing workflow YAML",
 			permissions: 0600,
 		},
@@ -90,7 +90,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			wantErrMsg:  "permission denied",
 			permissions: 0000,
 		},
@@ -288,7 +288,7 @@ func TestParseActionReferenceSuccess(t *testing.T) {
 	}{
 		{
 			name:           "standard version reference",
-			ref:            "actions/checkout@v2",
+			ref:            "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 			path:           "workflow.yml",
 			comments:       nil,
 			expectedOwner:  "actions",
@@ -387,7 +387,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Standard version reference
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       
       # Original version: v3
       - uses: actions/setup-node@a81bbbf8298c0fa03ea29cdc473d45769f953675
@@ -397,7 +397,7 @@ jobs:
       
       # Run step (should be ignored)
       - run: |
-          echo "This is a run step with actions/checkout@v2 in the text"
+          echo "This is a run step with actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 in the text"
           
       # Nested action in a job
       - name: Nested job
@@ -510,7 +510,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 		},
 		{
 			name: "workflow2.yaml",
@@ -520,7 +520,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 		},
 		{
 			name:    "not-a-workflow.txt",

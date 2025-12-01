@@ -63,7 +63,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "",
 				latestHash:    "",
@@ -82,8 +82,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123",
@@ -102,8 +102,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "",
@@ -122,9 +122,9 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - uses: actions/setup-python@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123",
@@ -143,7 +143,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123def456",
@@ -162,7 +162,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "",
 				latestHash:    "",
@@ -181,7 +181,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123def456",
@@ -213,7 +213,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			additionalWorkflows: map[string]string{
 				"test2.yml": `name: Test Workflow 2
 on: [pull_request]
@@ -221,14 +221,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2`,
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903`,
 				"test3.yml": `name: Test Workflow 3
 on: [workflow_dispatch]
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2`,
+      - uses: actions/setup-python@83679a892e2d95755f2dac6acb0bfd1e9ac5d548`,
 			},
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
@@ -248,7 +248,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			additionalWorkflows: map[string]string{
 				"invalid.yml": `invalid yaml content`,
 				"test2.yml": `name: Test Workflow 2
@@ -257,7 +257,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2`,
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903`,
 			},
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
@@ -277,7 +277,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			additionalWorkflows: map[string]string{
 				"test2.yml": `name: Test Workflow 2
 on: [pull_request]
@@ -285,7 +285,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-node@v2`,
+      - uses: actions/setup-node@2028fbc5c25fe9cf00d9f06a71cc4710d4507903`,
 			},
 			versionChecker: &mockVersionChecker{
 				latestVersion: "",
@@ -305,7 +305,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123def456",
@@ -325,7 +325,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			},
 		},
 		{
@@ -336,7 +336,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123def456",
@@ -358,7 +358,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`,
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`,
 			versionChecker: &mockVersionChecker{
 				latestVersion: "v3",
 				latestHash:    "abc123def456",
@@ -546,7 +546,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`)
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`)
 
 	if err := os.WriteFile(filepath.Join(workflowsDir, "test.yml"), workflowContent, 0644); err != nil {
 		t.Fatalf("Failed to create test workflow file: %v", err)
@@ -637,7 +637,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`)
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`)
 
 	if err := os.WriteFile(filepath.Join(workflowsDir, "test.yml"), workflowContent, 0644); err != nil {
 		t.Fatalf("Failed to create test workflow file: %v", err)
@@ -852,7 +852,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`)
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`)
 
 	if err := os.WriteFile(filepath.Join(workflowsDir, "test.yml"), workflowContent, 0644); err != nil {
 		t.Fatalf("Failed to create test workflow file: %v", err)

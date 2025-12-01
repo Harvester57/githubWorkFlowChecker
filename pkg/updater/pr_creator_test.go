@@ -302,7 +302,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@abc123  # v2`
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`
 }
 
 // setupTestServerWithRefHandlers creates a test server with dynamic branch ref handlers
@@ -465,39 +465,39 @@ func TestCreatePR_formatActionReference(t *testing.T) {
 	}{
 		{
 			name:     "standard uses format",
-			input:    "      - uses: actions/checkout@v2",
-			newRef:   "uses: actions/checkout@v3",
-			expected: "      - uses: actions/checkout@v3",
+			input:    "      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			// newRef:   "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			expected: "      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 		{
 			name:     "indented format",
-			input:    "        uses: actions/checkout@v2",
-			newRef:   "uses: actions/checkout@v3",
-			expected: "        uses: actions/checkout@v3",
+			input:    "        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			newRef:   "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			expected: "        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 		{
 			name:     "step definition line",
 			input:    "      - name: Checkout code",
-			newRef:   "uses: actions/checkout@v3",
+			newRef:   "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 			expected: "      - name: Checkout code", // Should remain unchanged
 		},
 		{
 			name:     "step without uses prefix",
-			input:    "      - actions/checkout@v2",
-			newRef:   "uses: actions/checkout@v3",
-			expected: "            uses: actions/checkout@v3", // Should add uses prefix with indentation
+			input:    "      - actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			newRef:   "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			expected: "            uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3", // Should add uses prefix with indentation
 		},
 		{
 			name:     "line with comment",
-			input:    "      - uses: actions/checkout@v2 # Comment",
-			newRef:   "uses: actions/checkout@v3",
-			expected: "      - uses: actions/checkout@v3", // Comment should be removed
+			input:    "      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # Comment",
+			newRef:   "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			expected: "      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3", // Comment should be removed
 		},
 		{
 			name:     "indented line with mixed whitespace",
-			input:    "  \t  - uses: actions/checkout@v2",
-			newRef:   "uses: actions/checkout@v3",
-			expected: "  \t  - uses: actions/checkout@v3",
+			input:    "  \t  - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			newRef:   "uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
+			expected: "  \t  - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 		},
 	}
 

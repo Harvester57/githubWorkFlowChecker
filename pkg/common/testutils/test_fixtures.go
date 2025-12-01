@@ -338,5 +338,5 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@abc123  # v2`
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`
 }

@@ -155,7 +155,7 @@ func TestParseActionReferenceFunction(t *testing.T) {
 	}{
 		{
 			name:     "valid reference with version",
-			ref:      "actions/checkout@v2",
+			ref:      "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3",
 			path:     "workflow.yml",
 			comments: []string{},
 			wantErr:  false,

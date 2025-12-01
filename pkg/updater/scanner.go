@@ -33,7 +33,7 @@ func (s *Scanner) validatePath(path string) error {
 	return common.ValidatePathWithDefaults(s.baseDir, path)
 }
 
-// parseActionReference parses an action reference string (e.g., "actions/checkout@v2" or "actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675")
+// parseActionReference parses an action reference string (e.g., "actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3" or "actions/checkout@a81bbbf8298c0fa03ea29cdc473d45769f953675")
 func parseActionReference(ref string, path string, comments []string) (*ActionReference, error) {
 	parts := strings.Split(ref, "@")
 	if len(parts) != 2 {

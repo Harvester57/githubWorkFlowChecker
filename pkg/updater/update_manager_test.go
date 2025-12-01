@@ -276,7 +276,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2  # v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3  # v2
       - uses: actions/setup-node@v3  # v3
 `
 	workflowFile := filepath.Join(tempDir, "workflow.yml")

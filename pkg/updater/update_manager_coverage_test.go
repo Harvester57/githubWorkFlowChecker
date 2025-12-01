@@ -30,7 +30,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-node@v1
       - uses: actions/cache@v2
 `
@@ -159,7 +159,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       # This is a comment about setup-node
       - name: Setup Node
         uses: actions/setup-node@v3
@@ -237,7 +237,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       # A comment line
       uses: actions/setup-node@v3`
 	if err := os.WriteFile(formatFile, []byte(formatContent), 0600); err != nil {
@@ -307,7 +307,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-node@v3`
 	if err := os.WriteFile(stepFile, []byte(stepContent), 0600); err != nil {
 		t.Fatalf("Failed to create step file: %v", err)
@@ -358,7 +358,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-node@v3
       - uses: actions/setup-python@v3
       - uses: actions/setup-java@v2`
@@ -467,7 +467,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3
       - uses: actions/setup-node@v3`
 	if err := os.WriteFile(testFile, []byte(content), 0600); err != nil {
 		t.Fatalf("Failed to create test file: %v", err)
@@ -564,7 +564,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2`
+      - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3`
 	if err := os.WriteFile(testFile, []byte(content), 0600); err != nil {
 		t.Fatalf("Failed to create test file: %v", err)
 	}
